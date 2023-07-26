@@ -3,7 +3,15 @@ import './Navbar.css'
 
 const Navbar = () => {
   return (
-    <div className=''>Navbar</div>
+    <div className='nav'>
+      <div>
+        Navbar
+      </div>
+      <div className='dark'>
+        <img src='' alt='image of dark'/>
+        <div>Dark Mode</div>
+      </div>
+    </div>
   )
 }
 
