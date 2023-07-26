@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import Navbar from './components/Navbar'
-import Display from './components/Display'
+import React, { useState } from "react";
+import Display from "./components/Display";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div>
       <Navbar />
       <Display />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
