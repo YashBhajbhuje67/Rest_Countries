@@ -1,5 +1,4 @@
 import React from 'react'
-import './Navbar.css'
 
 const Navbar = () => {
   return (
@@ -7,7 +6,7 @@ const Navbar = () => {
       <div>
         Navbar
       </div>
-      <div className='dark'>
+      <div className=''>
         <img src='' alt='image of dark'/>
         <div>Dark Mode</div>
       </div>
