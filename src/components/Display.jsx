@@ -15,13 +15,13 @@ const Display = () => {
 
   return (
     <div>
-      <div className='top'>
-        <input />
+      <div className=' flex justify-around px-8 py-4'>
+        <input className='border focus:outline-none w-1/5 p-2 rounded-md' placeholder='Search Here...'/>
         {/* Look from my pc */}
         <div>Filter By Region</div>
         {/* same rutu */}
       </div>
-      <div className='flex flex-wrap p-12 gap-8'>
+      <div className='flex flex-wrap mx-8 px-8 py-4 border gap-8'>
        {data.length!==0 ? data.map((country, index)=>{
         return(<Country country={country} key={index}/>)
        })
