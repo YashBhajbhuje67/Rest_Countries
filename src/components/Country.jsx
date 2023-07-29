@@ -2,7 +2,7 @@ import React from "react";
 
 const Country = ({ country }) => {
   return (
-    <div className="transition ease-in-out duration-500 border m-2 rounded-md w-[18.8%] h-72 drop-shadow-md  hover:cursor-pointer hover:drop-shadow-2xl">
+    <div className="transition ease-in-out duration-500 border rounded-md  drop-shadow-md  hover:cursor-pointer hover:drop-shadow-2xl">
       <img
         src={country.flags.svg}
         alt={country.flags.png}
