@@ -26,17 +26,14 @@ const Display = () => {
     fetchAllData();
   }, []);
 
-  useEffect(()=>{
-    fetchRegion();
-  },[region]);
-
   const handleChangeInput = (e)=>{
     setInputCountry(e.target.value);
     
   };
 
   const handleChangeRegion = (e)=>{
-    setRegion(e.target.value)
+    setRegion(e.target.value);
+    fetchRegion();
   }
 
   return (
@@ -57,7 +54,7 @@ const Display = () => {
           />
         </div>
 
-        <div className="p-2 rounded-md border bg-white">Filter By Region</div>
+        <div className="">Filter By Region</div>
         {/* same rutu */}
       </div>
       <div className="grid grid-cols-4 gap-14 my-8 px-32 mx-24">
