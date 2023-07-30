@@ -2,11 +2,11 @@ import React from "react";
 
 const Country = ({ country }) => {
   return (
-    <div className="transition ease-in-out duration-500 border-2 rounded-lg  drop-shadow-xs  hover:cursor-pointer hover:drop-shadow-2xl">
+    <div className="transition ease-in-out duration-500 border-2 w-54 rounded-lg  drop-shadow-xs  hover:cursor-pointer hover:drop-shadow-2xl">
       <img
         src={country.flags.svg}
         alt={country.flags.png}
-        className="w-screen h-40 bg-white rounded-t-md "
+        className="h-40 w-full bg-white rounded-t-md border"
       />
       <div className="px-4 py-2 bg-white">
         <div className="font-semibold p-2 text-lg">{country.name.common}</div>
