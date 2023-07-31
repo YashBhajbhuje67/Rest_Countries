@@ -5,7 +5,7 @@ import Display from "./components/Display";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [countryName, setCountryName] = useState("");
+  const [countryName, setCountryName] = useState("India");
 
   const changeCountryName = (name) => {
     setCountryName(name);

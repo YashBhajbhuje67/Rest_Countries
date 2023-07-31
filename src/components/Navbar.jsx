@@ -1,5 +1,4 @@
 import React from "react";
-import MoonLight from "../assets/moonLight.svg";
 
 const Navbar = () => {
   return (

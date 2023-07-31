@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import search from "../assets/search.png";
-import swipe from '../assets/swipe.png'
+import swipe from '../assets/swipe.png';
 import Country from "./Country";
 
 const Display = ({ changeCountryName }) => {

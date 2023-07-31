@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const Country = ({ country, changeCountryName }) => {
   const nav = useNavigate();
@@ -10,9 +10,9 @@ const Country = ({ country, changeCountryName }) => {
   return (
     <div className="transition ease-in-out duration-500 border-2 w-54 rounded-lg cursor-pointer hover:drop-shadow-xl" onClick={()=>{navigateDisplay()}}>
       <img
-        src={country.flags.svg}
+        src={country.flags.png}
         alt={country.flags.png}
-        className="h-40 w-full bg-white rounded-t-md border-b "
+        className="object-fit bg-white rounded-t-md border-b h-40 flex w-full "
       />
       <div className="px-4 py-2 bg-white h-36">
         <div className="font-semibold p-2 text-lg">{country.name.common}</div>
