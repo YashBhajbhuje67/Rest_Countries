@@ -1,15 +1,27 @@
 import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CountryDetail from "./components/CountryDetail";
 import Display from "./components/Display";
 import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [countryName, setCountryName] = useState("");
+
+  const changeCountryName = (name) => {
+    setCountryName(name);
+  };
 
   return (
-    <div>
+    <BrowserRouter>
       <Navbar />
-      <Display />
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={<Display changeCountryName={changeCountryName} />}
+        />
+        <Route path="/country" element={<CountryDetail countryName={countryName}/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

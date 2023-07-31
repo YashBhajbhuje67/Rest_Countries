@@ -4,13 +4,13 @@ import search from "../assets/search.png";
 import swipe from '../assets/swipe.png'
 import Country from "./Country";
 
-const Display = () => {
+const Display = ({ changeCountryName }) => {
   const [data, setData] = useState([]);
   const [displayData, setDisplayData] = useState([]);
-  const [inputCountry, setInputCountry] = useState('');
+  const [inputCountry, setInputCountry] = useState("");
   const [rotation, setRotation] = useState(0);
   const [region, setRegion] = useState("");
-  const [showFilter, setShowFilter] = useState('hidden');
+  const [showFilter, setShowFilter] = useState("hidden");
 
   useEffect(() => {
     fetchAllData();
@@ -22,7 +22,7 @@ const Display = () => {
     } else {
       searchInput();
     }
-  }, [inputCountry])
+  }, [inputCountry]);
 
   useEffect(() => {
     if (region == "") {
@@ -30,7 +30,7 @@ const Display = () => {
     } else {
       fetchRegion();
     }
-  }, [region])
+  }, [region]);
 
   const fetchAllData = async () => {
     try {
@@ -63,11 +63,10 @@ const Display = () => {
       result = data.filter((e) => {
         const name = `${e.name.common}`.toLowerCase();
         return name.startsWith(inputCountry);
-      })
+      });
       setDisplayData(result);
     }
-
-  }
+  };
 
   const handleChangeInput = (e) => {
     setInputCountry(e.target.value.toLowerCase());
@@ -75,18 +74,16 @@ const Display = () => {
 
   const handleChangeRegion = (e) => {
     setRegion(e.target.id);
-
   };
 
   const rotateArrow = () => {
     setRotation(rotation + 180);
-    if (showFilter === '') {
-      setShowFilter('hidden')
+    if (showFilter === "") {
+      setShowFilter("hidden");
+    } else {
+      setShowFilter("");
     }
-    else {
-      setShowFilter('')
-    }
-  }
+  };
 
   return (
     <div className="bg-zinc-50">
@@ -106,25 +103,80 @@ const Display = () => {
           />
         </div>
 
-        <div className="relative border cursor-pointer rounded-md drop-shadow" onClick={() => rotateArrow()}>
+        <div
+          className="relative border cursor-pointer rounded-md drop-shadow bg-white"
+          onClick={() => rotateArrow()}
+        >
           <div className="flex p-2 pl-4 items-center gap-6">
             <div>Filter By Region</div>
-            <img src={swipe} alt='img' className="w-[2vw] transition duration-500 transform rotate-0" style={{ transform: `rotate(${rotation}deg)` }} />
+            <img
+              src={swipe}
+              alt="img"
+              className="w-[2vw] transition duration-500 transform rotate-0"
+              style={{ transform: `rotate(${rotation}deg)` }}
+            />
           </div>
-          <div className={`absolute border rounded-md w-full bg-white mt-0.5 ${showFilter} drop-shadow`}>
-            <div className="p-2 px-6 hover:bg-slate-200" id="africa" onClick={(e) => { handleChangeRegion(e) }}>Africa</div>
-            <div className="p-2 px-6 hover:bg-slate-200" id="america" onClick={(e) => { handleChangeRegion(e) }}>America</div>
-            <div className="p-2 px-6 hover:bg-slate-200" id="asia" onClick={(e) => { handleChangeRegion(e) }}>Asia</div>
-            <div className="p-2 px-6 hover:bg-slate-200" id="europe" onClick={(e) => { handleChangeRegion(e) }}>Europe</div>
-            <div className="p-2 px-6 hover:bg-slate-200" id="oceania" onClick={(e) => { handleChangeRegion(e) }}>Oceania</div>
+          <div
+            className={`absolute border rounded-md w-full bg-white mt-0.5 ${showFilter} drop-shadow`}
+          >
+            <div
+              className="p-2 px-6 hover:bg-slate-200"
+              id="africa"
+              onClick={(e) => {
+                handleChangeRegion(e);
+              }}
+            >
+              Africa
+            </div>
+            <div
+              className="p-2 px-6 hover:bg-slate-200"
+              id="america"
+              onClick={(e) => {
+                handleChangeRegion(e);
+              }}
+            >
+              America
+            </div>
+            <div
+              className="p-2 px-6 hover:bg-slate-200"
+              id="asia"
+              onClick={(e) => {
+                handleChangeRegion(e);
+              }}
+            >
+              Asia
+            </div>
+            <div
+              className="p-2 px-6 hover:bg-slate-200"
+              id="europe"
+              onClick={(e) => {
+                handleChangeRegion(e);
+              }}
+            >
+              Europe
+            </div>
+            <div
+              className="p-2 px-6 hover:bg-slate-200"
+              id="oceania"
+              onClick={(e) => {
+                handleChangeRegion(e);
+              }}
+            >
+              Oceania
+            </div>
           </div>
         </div>
-
       </div>
       <div className="grid grid-cols-4 gap-14 my-12 px-32 mx-24">
         {data.length !== 0 ? (
           displayData.map((country, index) => {
-            return <Country country={country} key={index} />;
+            return (
+              <Country
+                country={country}
+                key={index}
+                changeCountryName={changeCountryName}
+              />
+            );
           })
         ) : (
           <div className="text-4xl font-semibold w-screen">No Data Found</div>

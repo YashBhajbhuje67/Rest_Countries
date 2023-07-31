@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
 
-const Country = ({ country }) => {
+const Country = ({ country, changeCountryName }) => {
+  const nav = useNavigate();
+  const navigateDisplay = ()=>{
+    nav('/country');
+    changeCountryName(country.name.common);
+  }
   return (
-    <div className="transition ease-in-out duration-500 border-2 w-54 rounded-lg hover:cursor-pointer hover:drop-shadow-xl">
+    <div className="transition ease-in-out duration-500 border-2 w-54 rounded-lg cursor-pointer hover:drop-shadow-xl" onClick={()=>{navigateDisplay()}}>
       <img
         src={country.flags.svg}
         alt={country.flags.png}
